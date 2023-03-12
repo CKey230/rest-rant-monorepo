@@ -6,7 +6,14 @@ function Navigation() {
 
     const history = useHistory()
 
-    const { currentUser } = useContext(CurrentUser)
+    const { currentUser, setCurrentUser } = useContext(CurrentUser)
+
+    const handleLogout = () => {
+        // Clear the current user state and redirect to the login page
+        setCurrentUser(null)
+        localStorage.removeItem('jwt')
+        history.push('/login')
+    }
 
     let loginActions = (
         <>
@@ -25,9 +32,16 @@ function Navigation() {
 
     if (currentUser) {
         loginActions = (
-            <li style={{ float: 'right' }}>
-                Logged in as {currentUser.firstName} {currentUser.lastName}
-            </li>
+            <>
+                <li style={{ float: 'right' }}>
+                    Logged in as {currentUser.firstName} {currentUser.lastName}
+                </li>
+                <li style={{ float: 'right' }}>
+                    <a href="#" onClick={handleLogout}>
+                        Log Out
+                    </a>
+                </li>
+            </>
         )
     }
 
