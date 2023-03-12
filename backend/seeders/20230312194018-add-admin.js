@@ -8,7 +8,7 @@ module.exports = {
       last_name: 'Key',
       email: 'C.Key@example.com',
       role:'admin',
-      pasword_digest: await bycrypt.hash(process.env.ADMIN_PASSWORDS, 10),
+      password_digest: await bcrypt.hash(process.env.ADMIN_PASSWORDS, 10),
       created_at: new Date(),
       updated_at: new Date()
     }])
