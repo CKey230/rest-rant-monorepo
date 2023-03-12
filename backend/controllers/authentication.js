@@ -20,5 +20,17 @@ router.post('/', async (req, res) => {
     }
 })
 
+router.get('/profile', async (req,res) => {
+   // try {
+       // let user = await User.fineOne({
+           // where: {
+           //     userId: ?
+           // }
+      //  })
+       // res.json(user)
+   // }catch {
+       // res.json(null)
+   // }
+})
 
 module.exports = router
