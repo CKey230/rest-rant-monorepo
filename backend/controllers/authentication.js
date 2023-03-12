@@ -21,6 +21,7 @@ router.post('/', async (req, res) => {
     }
 })
 
+//request handler
 router.get('/profile', async (req, res) => {
     try {
         // Split the authorization header into [ "Bearer", "TOKEN" ]:
