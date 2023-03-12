@@ -1,7 +1,10 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
+import { CurrentUser } from "../contexts/CurrentUser"
 
 
 function NewCommentForm({ place, onSubmit }) {
+
+    const { currentUser } = useContext(CurrentUser)
 
     //const [authors, setAuthors] = useState([])
 
@@ -38,6 +41,11 @@ function NewCommentForm({ place, onSubmit }) {
        
         
     }
+
+    if(!currentUser) {
+        return <p>You must be logged in to leave a rant or rave.</p>
+    }
+
 
     return (
         <form onSubmit={handleSubmit}>
